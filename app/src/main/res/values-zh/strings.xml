@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SIFAM</string>
+    <string name="item_accounts">%0 个账号</string>
+    <string name="item_account">%0 个账号</string>
+    <string name="last_loaded">最后读取：</string>
+    <string name="server_name_en">国际服</string>
+    <string name="server_name_jp">日服</string>
+    <string name="server_name_tw">台服</string>
+    <string name="server_name_kr">韩服</string>
+    <string name="server_name_cn">国服</string>
+    <string name="menu_save">保存</string>
+    <string name="menu_new">新账号</string>
+    <string name="menu_search">搜索</string>
+    <string name="menu_sort">排序</string>
+    <string name="menu_refresh">刷新</string>
+    <string name="menu_new_folder">新建文件夹</string>
+    <string name="menu_settings">设置</string>
+    <string name="menu_delete_gea">删除GameEngineActivity</string>
+    <string name="menu_import">导入账号</string>
+    <string name="menu_backup">备份管理</string>
+    <string name="menu_qr">扫描二维码</string>
+    <string name="menu_debug">调试工具</string>
+</resources>
