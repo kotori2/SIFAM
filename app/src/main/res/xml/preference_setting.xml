@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/title_setting">
+
+    <PreferenceCategory
+            android:key="category_all_setting"
+            android:title="@string/title_all_settings">
+
+        <PreferenceScreen
+            android:key="screen_server_setting"
+            android:title="@string/title_screen_server_setting">
+
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="screen_overlay_setting"
+            android:title="@string/title_screen_overlay_setting">
+
+            <PreferenceCategory
+                android:title="@string/title_screen_overlay_setting">
+                <CheckBoxPreference
+                    android:key="enable_overlay"
+                    android:title="@string/title_enable_overlay"
+                    android:summaryOn="@string/summary_enable_overlay_on"
+                    android:summaryOff="@string/summary_enable_overlay_off" />
+
+            </PreferenceCategory>
+
+            <PreferenceCategory
+                android:title="@string/title_enabled_overlays">
+
+                <CheckBoxPreference
+                    android:key="close_button"
+                    android:title="@string/title_close_button"
+                    android:summaryOn="@string/summary_close_button_on"
+                    android:summaryOff="@string/summary_close_button_off" />
+                <CheckBoxPreference
+                    android:key="overlay_name"
+                    android:title="@string/title_overlay_name"
+                    android:summaryOn="@string/summary_overlay_name_on"
+                    android:summaryOff="@string/summary_overlay_name_off" />
+                <CheckBoxPreference
+                    android:key="overlay_rename"
+                    android:title="@string/title_overlay_rename"
+                    android:summaryOn="@string/summary_overlay_rename_on"
+                    android:summaryOff="@string/summary_overlay_rename_off" />
+
+            </PreferenceCategory>
+
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="screen_save_and_load_setting"
+            android:title="@string/title_screen_save_and_load_setting">
+
+            <CheckBoxPreference
+                android:key="quick_save"
+                android:title="@string/title_quick_save"
+                android:summaryOn="@string/summary_quick_save_on"
+                android:summaryOff="@string/summary_quick_save_off" />
+            <CheckBoxPreference
+                android:key="alternate_qs"
+                android:title="@string/title_alternate_qs"
+                android:summaryOn="@string/summary_alternate_qs_on"
+                android:summaryOff="@string/summary_alternate_qs_off" />
+            <CheckBoxPreference
+                android:key="auto_start"
+                android:title="@string/title_auto_start"
+                android:summaryOn="@string/summary_auto_start_on"
+                android:summaryOff="@string/summary_auto_start_off" />
+            <CheckBoxPreference
+                android:key="allow_duplicate_save"
+                android:title="@string/title_allow_duplicate_save"
+                android:summaryOn="@string/summary_allow_duplicate_save_on"
+                android:summaryOff="@string/summary_allow_duplicate_save_off" />
+
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/title_general_settings">
+
+        <CheckBoxPreference
+            android:key="folders_on_bottom"
+            android:title="@string/title_checkbox_folder_on_bottom"
+            android:summaryOn="@string/summary_checkbox_folder_on_bottom_on"
+            android:summaryOff="@string/summary_checkbox_folder_on_bottom_off" />
+        <CheckBoxPreference
+            android:key="no_warnings"
+            android:title="@string/title_no_warnings"
+            android:summaryOn="@string/summary_no_warnings_on"
+            android:summaryOff="@string/summary_no_warnings_off" />
+        <CheckBoxPreference
+            android:key="no_delete_warning"
+            android:title="@string/title_no_delete_warning"
+            android:summaryOn="@string/summary_no_delete_warning_on"
+            android:summaryOff="@string/summary_no_delete_warning_off" />
+
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>
