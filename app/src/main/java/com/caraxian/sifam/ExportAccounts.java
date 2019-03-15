@@ -3,7 +3,7 @@ package com.caraxian.sifam;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +16,6 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Map;
 
 public class ExportAccounts extends AppCompatActivity {
     private ListView backupListView;
