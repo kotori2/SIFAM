@@ -3,10 +3,13 @@ package com.caraxian.sifam;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 
-import java.io.File;
-import java.io.FileWriter;
+import com.topjohnwu.superuser.io.SuFile;
+import com.topjohnwu.superuser.io.SuFileInputStream;
+import com.topjohnwu.superuser.io.SuFileOutputStream;
+
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Server {
     public String code;
@@ -18,7 +21,7 @@ public class Server {
     public String currentUser;
     public String currentPass;
     public String assetKey;
-    public File gameEngineActivity;
+    public SuFile gameEngineActivity;
     public boolean error = false;
 
     public static Server getServer(String code){
@@ -34,7 +37,7 @@ public class Server {
         code = nCode;
         name = nName;
         className = nClassName;
-        gameEngineActivity = new File("/data/data/" + className + "/shared_prefs/GameEngineActivity.xml");
+        gameEngineActivity = new SuFile("/data/data/" + className + "/shared_prefs/GameEngineActivity.xml");
         updateEnabled();
         updateInstalled();
         updateFromGameEngineActivity();
@@ -89,14 +92,19 @@ public class Server {
                 public void run() {
                     updateFromGameEngineActivity();
                 }
-            }, 200*failCheckCount);
+            }, 200 * failCheckCount);
             error = true;
             return;
         }
-        if (installed == true) {
+        if (installed) {
             if (gameEngineActivity.exists()) {
                 try {
-                    String text = new Scanner(gameEngineActivity, "UTF-8").useDelimiter("\\A").next();
+                    InputStream is = new SuFileInputStream(gameEngineActivity);
+                    byte[] bytes = new byte[(int)gameEngineActivity.length()];
+                    is.read(bytes);
+                    is.close();
+
+                    String text = new String(bytes);
                     String s1[] = text.split("<string name=\"\\[LOVELIVE_ID\\]user_id\">");
                     if (s1.length > 1) {
                         String s2[] = s1[1].split("</string>");
@@ -144,7 +152,7 @@ public class Server {
             SIFAM.Toast("Failed to write to '" + code + "' GameEngineActivity.\nHave you allowed SIFAM to have root access?");
             return false;
         }
-        if (installed == true) {
+        if (installed) {
             ArrayList<String> lines = new ArrayList<String>();
             lines.add("<?xml version='1.0' encoding='utf-8' standalone='yes' ?>");
             lines.add("<map>");
@@ -154,11 +162,13 @@ public class Server {
             lines.add("</map>");
             try {
                 if (gameEngineActivity.exists()) {
-                    FileWriter writer = new FileWriter(gameEngineActivity.getAbsolutePath());
+                    OutputStream os = new SuFileOutputStream(gameEngineActivity);
                     for (String l : lines) {
-                        writer.write(l + "\n");
+                        byte[] bytes = l.getBytes();
+                        os.write(bytes);
+                        os.write("\n".getBytes());
                     }
-                    writer.close();
+                    os.close();
                 } else {
                     gameEngineActivity.createNewFile();
                     SIFAM.forcePermission(gameEngineActivity);

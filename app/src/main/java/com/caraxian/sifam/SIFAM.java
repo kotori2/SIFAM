@@ -12,7 +12,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import java.io.DataOutputStream;
+import com.topjohnwu.superuser.Shell;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -123,6 +124,8 @@ public class SIFAM extends Application {
     }
 
     public static void executeRootCommand(String... command) {
+        Shell.su(command).exec();
+        /*
         if (shell == null) {
             SIFAM.log("No Shell");
         } else {
@@ -136,10 +139,13 @@ public class SIFAM extends Application {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        }
+        }*/
     }
 
-    private static Process getShell() {
+    private static Process getShell(){
+        Shell.Config.verboseLogging(BuildConfig.DEBUG);
+        return null;
+        /*
         try {
             Process shell = Runtime.getRuntime().exec("sh");
             DataOutputStream o = new DataOutputStream(shell.getOutputStream());
@@ -149,7 +155,7 @@ public class SIFAM extends Application {
         } catch (Exception ex) {
             SIFAM.log(ex);
             return null;
-        }
+        }*/
     }
 
     public static String exceptionToString(Exception ex) {
