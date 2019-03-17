@@ -230,7 +230,7 @@ public final class Database {
         String selection = "";
         ArrayList<String> selectionArgs = new ArrayList<>();
         for (Server s : SIFAM.serverList) {
-            if (s.enabled == true) {
+            if (s.enabled) {
                 if (selection.length() >= 1) {
                     selection += " OR ";
                 }

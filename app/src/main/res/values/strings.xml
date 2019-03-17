@@ -65,5 +65,7 @@
 	<string name="title_allow_duplicate_save">Allow Duplicate Saves</string>
 	<string name="summary_allow_duplicate_save_on">SIFAM won\'t check for existing save.</string>
 	<string name="summary_allow_duplicate_save_off">SIFAM will check if the current account is already saved before saving.</string>
+	<string name="lable_last_loded_never">Last Loaded: Never</string>
+	<string name="lable_last_loded">Last Loaded:</string>
 
 </resources>

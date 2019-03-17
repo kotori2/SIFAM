@@ -24,8 +24,6 @@
         </activity>
         <activity android:name=".ErrorDetected" />
         <activity android:name=".AppPreferences" />
-
-
         <activity android:name=".ImportAccounts" />
         <activity android:name=".ExportAccounts" />
         <activity android:name=".DebugTools" />

@@ -10,9 +10,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class AccountListAdapter extends ArrayAdapter<Account> {
-    Context context;
-    int layoutResourceId;
-    ArrayList<Account> data = null;
+    private Context context;
+    private int layoutResourceId;
+    private ArrayList<Account> data = null;
 
     public AccountListAdapter(Context context, int layoutResourceId, ArrayList<Account> data) {
         super(context, layoutResourceId, data);
@@ -39,7 +39,7 @@ public class AccountListAdapter extends ArrayAdapter<Account> {
         holder.itemCount = (TextView) row.findViewById(R.id.account_itemCount);
         Account account = data.get(position);
         holder.accountName.setText(account.name);
-        if (account.locked == true) {
+        if (account.locked) {
             holder.lockedIcon.setVisibility(View.VISIBLE);
         } else {
             holder.lockedIcon.setVisibility(View.GONE);
@@ -67,9 +67,9 @@ public class AccountListAdapter extends ArrayAdapter<Account> {
             holder.serverId.setText(account.server);
             holder.folderIcon.setVisibility(View.GONE);
             holder.info.setVisibility(View.VISIBLE);
-            if (account.loaded == 0) holder.info.setText("Last Loaded: Never");
+            if (account.loaded == 0) holder.info.setText(context.getResources().getString(R.string.lable_last_loded_never));
             else
-                holder.info.setText("Last Loaded: " + TimeAgo.toDuration(System.currentTimeMillis() - account.loaded));
+                holder.info.setText(context.getResources().getString(R.string.lable_last_loded) + TimeAgo.toDuration(System.currentTimeMillis() - account.loaded));
             if (account.isCurrent()) {
                 holder.loadedIcon.setVisibility(View.VISIBLE);
             } else {

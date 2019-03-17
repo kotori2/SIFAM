@@ -24,7 +24,7 @@
     <string name="title_setting">SIFAM 设置</string>
     <string name="title_screen_server_setting">服务器设置</string>
     <string name="title_all_settings">所有设置</string>
-    <string name="title_screen_overlay_setting">遮罩层设置</string>
+    <string name="title_screen_overlay_setting">悬浮窗设置</string>
     <string name="title_screen_save_and_load_setting">读取/保存设置</string>
     <string name="title_general_settings">通用设置</string>
     <string name="title_checkbox_folder_on_bottom">文件夹置底</string>
@@ -64,4 +64,6 @@
     <string name="title_allow_duplicate_save">允许保存副本</string>
     <string name="summary_allow_duplicate_save_on">SIFAM不会检查重复保存</string>
     <string name="summary_allow_duplicate_save_off">SIFAM会在保存前检查是否重复保存</string>
+    <string name="lable_last_loded_never">最后使用：从未使用过</string>
+    <string name="lable_last_loded">最后使用：</string>
 </resources>
